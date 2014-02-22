@@ -44,9 +44,12 @@ angular.module('freak.directives', [])
     .directive('frDataTools', function() {
         return {
             restrict: 'E',
-            template: '<a ng-click="show($index)" class="btn btn-small" ng-show="isUsing(\'show\')"><i class="icon-search"></i></a>'
-                    + '<a ng-click="edit($index)" class="btn btn-small" ng-show="isUsing(\'edit\')"><i class="icon-pencil"></i></a>'
-                    + '<a ng-click="destroy($index)" class="btn btn-small" ng-show="isUsing(\'destroy\')"><i class="icon-trash" ></i></a>',
+            template:
+                    '<span class="btn-group">'
+                        + '<a ng-click="show($index)" class="btn btn-small" ng-show="isUsing(\'show\')"><i class="icon-search"></i></a>'
+                        + '<a ng-click="edit($index)" class="btn btn-small" ng-show="isUsing(\'edit\')"><i class="icon-pencil"></i></a>'
+                        + '<a ng-click="destroy($index)" class="btn btn-small" ng-show="isUsing(\'destroy\')"><i class="icon-trash" ></i></a>'
+                    + '</span>',
 
             link: function(scope, element, attrs) {
 
