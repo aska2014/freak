@@ -171,6 +171,9 @@ class RegisterController extends FreakBaseController {
      */
     protected function createAdminRequest( Account $user)
     {
+        $this->roles->makeSureRoleExists('administrator');
+        $this->roles->makeSureRoleExists('developer');
+
         if($user->hasRole('administrator'))
         {
             $this->addErrors('You already are an administrator please log in to access the control panel.');

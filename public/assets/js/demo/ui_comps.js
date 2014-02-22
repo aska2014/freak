@@ -242,7 +242,7 @@
 	$(document).ready(function() {
 
 		if( $.fn.progressbar ) {
-		
+
 			demos.basicPb( $('#demo-pb-01') );
 
 			$( '#jui-pb-rand' ).on( 'click', function( e ) {
@@ -266,18 +266,20 @@
 			demos.snapToTicks($('#demo-slider-07'));
 			demos.verticalSlider($('#demo-slider-08'));
 		}
-		
+
 		if( $.fn.datepicker ) {
-			
+
 			demos.basicDatepicker( $( '.datepicker-basic' ) );
-			demos.inlineDatepicker( $( '.datepicker-inline' ) );
+//			demos.inlineDatepicker( $( '.datepicker-inline' ) );
 			demos.weekDatepicker( $( '.datepicker-week' ) );
 			demos.changeYearMonth( $( '.datepicker-cmy' ) );
 			demos.dateRangePicker( $( '#datepicker-from' ), $( '#datepicker-to' ) );
-			
+
 		}
 
 		if( $.fn.timepicker ) {
+
+            console.log('timepicker date');
 
 			demos.basicTimepicker( $( '#timepicker-basic' ) );
 			demos.timepickerMili( $( '#timepicker-mili' ) );
@@ -290,13 +292,13 @@
 			demos.zebraWeek( $('#zebradp-week') );
 			demos.zebraMonth( $('#zebradp-month') );
 		}
-		
+
 		if( $.fn.miniColors ) {
-			
+
 			$( '.minicolors' ).miniColors();
-			$( '.minicolors-opacity' ).miniColors({ opacity: true });			
+			$( '.minicolors-opacity' ).miniColors({ opacity: true });
 		}
-		
+
 		if( $.fn.farbtastic ) {
 			$( '.farbtastic' ).farbtastic( function( color ) { $( '#farbtastic-demo1' ).css( 'color', color ).text( color ); } );
 		}

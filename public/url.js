@@ -2,35 +2,50 @@ function url (_base) {
     this.base = _base.replace(/\/+$/,'');
 }
 
-url.prototype.configuration = function(uri, server) {
-    return this.to('configuration/' + uri, server);
+url.prototype.serverConfiguration = function(uri) {
+    return this.to('configuration/' + uri, true);
 };
 
-url.prototype.page = function(_page, server) {
-    return this.to('pages/' + _page + '.html', server);
+url.prototype.serverPage = function(_page) {
+    return this.to('pages/' + _page + '.html', true);
 };
 
-url.prototype.element = function(_element, uri, server) {
-    return this.to('element/' + _element + '/' + uri, server);
+url.prototype.serverElement = function(_element, uri) {
+    uri = typeof uri !== 'undefined' ? uri : '';
+
+    return this.to('element/' + _element + '/' + uri, true);
 };
 
-url.prototype.package = function(_package, uri, server) {
-    return this.to('package/' + _package + '/' + uri, server);
+url.prototype.serverPackage = function(_package, uri) {
+    uri = typeof uri !== 'undefined' ? uri : '';
+
+    return this.to('package/' + _package + '/' + uri, true);
 };
 
-url.prototype.elementView = function(_element, view, server) {
+url.prototype.serverElementView = function(_element, view) {
 
-    return this.to('view/element/' + _element + '/' + view, server);
+    return this.to('view/element/' + _element + '/' + view, true);
 };
 
-url.prototype.packageView = function(_package, view, server) {
-    return this.to('view/package/' + _package + '/' + view, server);
+url.prototype.serverPackageView = function(_element, view) {
+
+    return this.to('view/element/' + _element + '/' + view, true);
+};
+
+url.prototype.elementView = function(_element, view) {
+
+    return this.to('view/element/' + _element + '/' + view);
+};
+
+url.prototype.packageView = function(_package, view) {
+    return this.to('view/package/' + _package + '/' + view);
 };
 
 
 url.prototype.to = function(uri, server) {
-
-    if(server == true) return this.base + '/' + uri;
+    if(server == true) {
+        return this.base + '/' + uri.replace(/\/+$/, '');
+    }
 
     return '/' + uri;
 };

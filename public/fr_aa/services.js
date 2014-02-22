@@ -18,7 +18,7 @@ angular.module('freak.services', ['ngResource']).
                 var deferred = $q.defer();
                 var that = this;
 
-                $http.get(url.configuration('menu', true)).success(function(data) {
+                $http.get(url.serverConfiguration('menu')).success(function(data) {
 
                     that.data = that.modifyData(data);
 
@@ -133,11 +133,45 @@ angular.module('freak.services', ['ngResource']).
 
     .factory('Element', ['url', '$resource', function(url, $resource) {
 
-        return function(_name) {
 
-            return $resource(url.element(_name, ':id', true), {id: '@id'}, {
-                query: {method: 'GET', isArray: true}
-            });
+        return {
+            resource: function(_name) {
+
+                return $resource(url.serverElement(_name, ':id'), {id: '@id'}, {
+                    query: {method: 'GET', isArray: true}
+                });
+            },
+
+            newModel: function(_name) {
+                var resource = this.resource(_name);
+
+                return new resource();
+            },
+
+            index: function(_name, success_callback, error_callback) {
+
+                return this.resource(_name).query(success_callback, error_callback);
+            },
+
+            store: function(_model, success_callback, error_callback) {
+
+                _model.$save(success_callback, error_callback);
+            },
+
+            show: function(_name, id, success_callback, error_callback) {
+                return this.resource(_name).get({id: id}, success_callback, error_callback);
+            },
+
+            destroy: function(_model, success_callback, error_callback) {
+                _model.$delete(success_callback, error_callback);
+            },
+
+            operation: function(_name, _uri, _parameters, success_callback, error_callback) {
+
+                return $resource('', _parameters, {
+                    operation: {url: url.serverElement(_name, _uri)}
+                }).operation(success_callback, error_callback);
+            }
         }
     }])
 
@@ -289,10 +323,47 @@ angular.module('freak.services', ['ngResource']).
 
         this.isInteger = function(possibleInteger) {
             return /^[\d]+$/.test(possibleInteger);
-        }
+        };
 
         return this;
     })
+
+
+    .factory('Refresher', ['$timeout', function($timeout) {
+
+        var callbacks = [[], [], []], intervals = [0, 0, 0], id = 0;
+
+        var that = this;
+
+        this.registerShort = function(callback) {
+            callbacks[0].push(callback);
+            return id++;
+        }
+
+        this.registerShort = function(callback) {
+            callbacks[0].push(callback);
+            return id++;
+        }
+
+        this.setIntervals = function(_shortInterval, _mediumInterval, _longInterval) {
+            intervals = [_shortInterval, _mediumInterval, _longInterval];
+        }
+
+        this.callShort = function() {
+            for(var i = 0; i < callbacks.length; i ++){
+
+                callbacks[i]();
+            }
+        }
+
+        // Hold the cancel refresh
+        $timeout(function myFunction() {
+
+            that.callShort();
+
+            $timeout(myFunction, that.interval[0]);
+        },that.interval[0]);
+    }])
 
 
     .value('url', freakUrl);

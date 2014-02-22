@@ -12,24 +12,27 @@
     <meta name="author" content="Kareem Mohamed">
 
     <!-- Bootstrap Stylesheet -->
-    <link rel="stylesheet" href="/packages/kareem3d/freak/bootstrap/css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/bootstrap/css/bootstrap.min.css') ?>" media="all">
 
     <!-- jquery-ui Stylesheets -->
-    <link rel="stylesheet" href="/packages/kareem3d/freak/assets/jui/css/jquery-ui.css" media="screen">
-    <link rel="stylesheet" href="/packages/kareem3d/freak/assets/jui/jquery-ui.custom.css" media="screen">
-    <link rel="stylesheet" href="/packages/kareem3d/freak/assets/jui/timepicker/jquery-ui-timepicker.css" media="screen">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/assets/jui/css/jquery-ui.css') ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/assets/jui/jquery-ui.custom.css') ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/assets/jui/timepicker/jquery-ui-timepicker.css') ?>" media="screen">
 
     <!-- Uniform Stylesheet -->
-    <link rel="stylesheet" href="/packages/kareem3d/freak/plugins/uniform/css/uniform.default.css" media="screen">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/plugins/uniform/css/uniform.default.css') ?>" media="screen">
 
     <!-- pnotify -->
-    <link rel="stylesheet" href="/packages/kareem3d/freak/plugins/pnotify/jquery.pnotify.css" media="screen">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/plugins/pnotify/jquery.pnotify.css') ?>" media="screen">
+
+    <!-- Zebra Datepicker -->
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/plugins/zebradp/css/mooncake/zebra_datepicker.css') ?>" media="screen">
 
     <!-- End Plugin Stylesheets -->
 
     <!-- Main Layout Stylesheet -->
-    <link rel="stylesheet" href="/packages/kareem3d/freak/assets/css/fonts/icomoon/style.css" media="screen">
-    <link rel="stylesheet" href="/packages/kareem3d/freak/assets/css/main-style.css" media="screen">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/assets/css/fonts/icomoon/style.css') ?>" media="screen">
+    <link rel="stylesheet" href="<?php echo URL::to('/packages/kareem3d/freak/assets/css/main-style.css') ?>" media="screen">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -150,7 +153,7 @@
 </div>
 
 <!-- url scripts -->
-<script src="/packages/kareem3d/freak/url.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/url.js') ?>"></script>
 <script type="text/javascript">
     var freakUrl = new url('<?php echo freakUrl("") ?>');
 </script>
@@ -158,53 +161,63 @@
 
 
 <!-- Core Scripts -->
-<script src="/packages/kareem3d/freak/assets/js/libs/jquery-1.8.3.min.js"></script>
-<script src="/packages/kareem3d/freak/bootstrap/js/bootstrap.min.js"></script>
-<script src="/packages/kareem3d/freak/assets/js/libs/jquery.placeholder.min.js"></script>
-<script src="/packages/kareem3d/freak/assets/js/libs/jquery.mousewheel.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/bootstrap/js/bootstrap.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/js/libs/jquery.placeholder.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/js/libs/jquery.mousewheel.min.js') ?>"></script>
 
 <!-- Template Script -->
-<script src="/packages/kareem3d/freak/assets/js/template.js"></script>
-<script src="/packages/kareem3d/freak/assets/js/setup.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/js/template.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/js/setup.js') ?>"></script>
 
 
 <!-- Customizer, remove if not needed -->
-<script src="/packages/kareem3d/freak/assets/js/customizer.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/js/customizer.js') ?>"></script>
 
 <!-- Uniform Script -->
-<script src="/packages/kareem3d/freak/plugins/uniform/jquery.uniform.min.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/uniform/jquery.uniform.min.js') ?>"></script>
 
 <!-- jquery-ui Scripts -->
-<script src="/packages/kareem3d/freak/assets/jui/js/jquery-ui-1.9.2.min.js"></script>
-<script src="/packages/kareem3d/freak/assets/jui/jquery-ui.custom.min.js"></script>
-<script src="/packages/kareem3d/freak/assets/jui/timepicker/jquery-ui-timepicker.min.js"></script>
-<script src="/packages/kareem3d/freak/assets/jui/jquery.ui.touch-punch.min.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/jui/js/jquery-ui-1.9.2.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/jui/jquery-ui.custom.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/jui/timepicker/jquery-ui-timepicker.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/jui/jquery.ui.touch-punch.min.js') ?>"></script>
 
 <!-- pnotify -->
-<script src="/packages/kareem3d/freak/plugins/pnotify/jquery.pnotify.min.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/pnotify/jquery.pnotify.min.js') ?>"></script>
+
+<!-- DataTables -->
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/datatables/TableTools/js/TableTools.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/datatables/FixedColumns/FixedColumns.min.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/datatables/dataTables.bootstrap.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/datatables/jquery.dataTables.columnFilter.js') ?>"></script>
+
+<!-- Demo Scripts -->
+<script src="<?php echo URL::to('/packages/kareem3d/freak/assets/js/demo/dataTables.js') ?>"></script>
+
+<!-- Zebra Datepicker -->
+<script src="<?php echo URL::to('/packages/kareem3d/freak/plugins/zebradp/zebra_datepicker.min.js') ?>"></script>
 
 
 
 
 <!-- AngularJS Scripts -->
-<script src="/app/lib/angular-1.2.10/angular.min.js"></script>
-<script src="/app/lib/angular-1.2.10/angular-resource.min.js"></script>
-<script src="/app/lib/angular-1.2.10/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-resource.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular-route.min.js"></script>
 
-<script src="/packages/kareem3d/freak/fr_aa/app.js"></script>
-<script src="/packages/kareem3d/freak/fr_aa/controllers.js"></script>
-<script src="/packages/kareem3d/freak/fr_aa/directives.js"></script>
-<script src="/packages/kareem3d/freak/fr_aa/filters.js"></script>
-<script src="/packages/kareem3d/freak/fr_aa/services.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/fr_aa/app.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/fr_aa/controllers.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/fr_aa/directives.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/fr_aa/filters.js') ?>"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak/fr_aa/services.js') ?>"></script>
 
 
 
 <!-- Packages javascript files -->
-<script src="/packages/kareem3d/freak-images/angular-file-upload.js"></script>
+<script src="<?php echo URL::to('/packages/kareem3d/freak-images/angular-file-upload.js') ?>"></script>
 
-
-
-<!-- Demo Scripts -->
 
 </body>
 

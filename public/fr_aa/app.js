@@ -15,8 +15,7 @@ angular.module('freak', [
     ]).
     config(['$routeProvider', function ($routeProvider) {
 
-        $routeProvider.when('/home', {templateUrl: freakUrl.page('home', true), controller: 'HomeCtrl'});
-
+        $routeProvider.when('/home', {templateUrl: freakUrl.serverPage('home'), controller: 'HomeCtrl'});
 
         // We will have three standard views (form, one, all)
 
@@ -24,7 +23,7 @@ angular.module('freak', [
 
             templateUrl: function (params)
             {
-                return freakUrl.elementView(params.element, 'form', true);
+                return freakUrl.serverElementView(params.element, 'form');
             },
 
             controller: 'ElementFormCtrl'
@@ -34,7 +33,7 @@ angular.module('freak', [
 
             templateUrl: function (params)
             {
-                return freakUrl.elementView(params.element, 'form', true);
+                return freakUrl.serverElementView(params.element, 'form');
             },
 
             controller: 'ElementFormEditCtrl'
@@ -44,7 +43,7 @@ angular.module('freak', [
 
             templateUrl: function (params)
             {
-                return freakUrl.elementView(params.element, 'one', true);
+                return freakUrl.serverElementView(params.element, 'one');
             },
 
             controller: 'ElementOneCtrl'
@@ -54,11 +53,21 @@ angular.module('freak', [
 
             templateUrl: function (params)
             {
-                return freakUrl.elementView(params.element, 'all', true);
+                return freakUrl.serverElementView(params.element, 'all');
             },
 
             controller: 'ElementAllCtrl'
         });
 
-        $routeProvider.otherwise({redirectTo: '/'});
+        $routeProvider.when(freakUrl.elementView(':element', ':view'), {
+
+            templateUrl: function (params)
+            {
+                return freakUrl.serverElementView(params.element, params.view);
+            },
+
+            controller: 'ElementViewCtrl'
+        });
+
+        $routeProvider.otherwise({redirectTo: '/home'});
     }]);

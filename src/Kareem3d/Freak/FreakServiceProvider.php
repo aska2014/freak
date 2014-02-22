@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Kareem3d\Freak\Freak;
+use Kareem3d\Membership\Account;
 
 class FreakServiceProvider extends ServiceProvider {
 
@@ -55,6 +56,9 @@ class FreakServiceProvider extends ServiceProvider {
 
             // Load views
             View::addNamespace($freak->getName(), Config::get('freak::paths.directories.views'));
+
+            // Set authentication model to freak user.
+            Config::set('auth.model', Account::getClass());
 
             // Load elements and add them to the freak
             $elements = $this->app->make('Kareem3d\Freak\Factories\ElementFactory')

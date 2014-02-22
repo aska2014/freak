@@ -30,7 +30,7 @@ Route::group($freakConfig, function ()
 
     // Request element operation
     Route::any('/element/{element}/{any?}', 'Kareem3d\Freak\Controllers\RequestController@element')
-        ->where('element', '[a-zA-Z0-9]+')
+        ->where('element', '[a-zA-Z0-9_-]+')
         ->where('any', '.*');
 
     // Request package operation

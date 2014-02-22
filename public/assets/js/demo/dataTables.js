@@ -48,39 +48,7 @@
 					}
 				});
 			}
-		}, 
-
-		dtFixedColumns: function( target ) {
-
-			if( $.fn.dataTable ) {
-
-				var dt = target.dataTable({
-			        "sScrollY": "300px",
-			        "sScrollX": "100%",
-			        "sScrollXInner": "150%",
-			        "bScrollCollapse": true,
-			        "bPaginate": false
-			    });
-				new FixedColumns( dt );
-
-			}
-
-		}		
-	};
-	
-	
-	$(document).ready(function() {	
-		
-		if($.fn.dataTable) {
-			
-			$('table#demo-dtable-01').dataTable();
-			
-			$('table#demo-dtable-02').dataTable().columnFilter();
-
-			demos.dtTableTools( $('table#demo-dtable-03') );
-
-			demos.dtFixedColumns( $('table#demo-dtable-04') );
 		}
-	});
+	};
 	
 }) (jQuery, window, document);
