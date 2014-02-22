@@ -273,11 +273,6 @@ angular.module('freak.controllers', []).
             $location.path($scope.url.elementView($routeParams.element, 'all/' ));
         }
 
-        // Destroy the refresh timeout on destroying the view
-        $scope.$on('$destroy', function() {
-            $timeout.cancel(cancelRefresh);
-        });
-
         // Change location to show the clicked model
         $scope.show = function(i)
         {
